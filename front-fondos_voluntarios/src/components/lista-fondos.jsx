@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import { Fondos } from "../services/fondos-service";
 import logoReact from "../assets/images/logo192.png";
+import { CrearFondo } from "./crear-fondos";
 
 export const ListaFondos = () => {
   const [response, setResponse] = useState(null);
@@ -21,14 +22,15 @@ export const ListaFondos = () => {
 
   return (
     <>
-      { habilitado ? (
+      {habilitado ? (
         <div className="container text-center">
           <img src={logoReact} alt="Info" className="App-logo" />
         </div>
+      ) : !response ? (
+        <div className="container mt-2">No hay datos</div>
       ) : (
         <div className="container mt-2">
-          {JSON.stringify(response)}
-          { response.map((element) => {
+          {response.map((element) => {
             return (
               <div
                 className="card mb-2"
@@ -46,7 +48,9 @@ export const ListaFondos = () => {
               </div>
             );
           })}
-          <button className="btn btn-primary">Crear Fondo</button>
+          <div className="mt-2">
+            <CrearFondo props={response} />
+          </div>
         </div>
       )}
     </>

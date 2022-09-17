@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ListaFondos } from './components/lista-fondos';
 import { Navbar } from './components/_layouts/navbar';
+import { CrearFondo } from './components/crear-fondos';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route path='/' element={<ListaFondos />} />
+          <Route path='/crear' element={<CrearFondo />} />
         </Routes>
       </BrowserRouter>
     </>
