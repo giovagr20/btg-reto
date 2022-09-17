@@ -7,9 +7,8 @@ export const CrearFondo = (props) => {
     Swal.fire({
       title: "Crea tu fondo",
       icon: "success",
-      input: 'text',
       showConfirmButton: true,
-      html: `Crear un fondo`,
+      html: `Crear un fondo `,
     });
   };
 

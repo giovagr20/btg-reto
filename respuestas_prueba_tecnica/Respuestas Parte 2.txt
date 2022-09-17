@@ -1,0 +1,18 @@
+Escriba las consultas SQL correspondientes, para ello, tenga en cuenta la base de datos llamada
+“BTG” la cual tiene las siguientes tablas (tenga en cuenta que se puede presentar el caso de que no
+todas las sucursales ofrecen los mismos productos)
+
+R:// Obtener los nombres de los clientes los cuales 
+tienen inscrito algún producto disponible sólo en las
+sucursales que visitan.
+
+SELECT c.nombre, p.nombre, p.tipoProducto
+	FROM BTG.cliente c INNER JOIN BTG.visitan v
+		ON c.id = v.idCliente 
+		INNER JOIN BTG.sucursal s
+		ON v.idSucursal = s.id
+		INNER JOIN BTG.inscripcion i
+		ON c.id = i.idCliente
+		INNER JOIN BTG.producto p
+		ON i.idProducto = p. id
+	

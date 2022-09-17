@@ -1,0 +1,32 @@
+1. De acuerdo con la anterior necesidad de negocio 
+que tiene el área de servicio al cliente de la
+compañía:
+a. Indique con sus propias palabras, 
+qué tecnologías utilizaría para garantizar la solución.
+Justifique su respuesta.
+
+R:// Es un sistema donde se proveeria servicios rest, 
+utilizaría Nodejs con express y React, debido a que debemos separar
+el front y el back, además generar recursos CORS separando
+la logica de negocio.
+
+b. Diseñe un modelo de datos NoSQL que permita
+la solución al problema.
+
+R:// Document
+Api REST MongoDB
+|_id|categoria|monto|nombre|timestamp|
+
+c. Construya una aplicación web con API REST que 
+permita al usuario disponer de la
+funcionalidad descrita. Para el desarrollo, 
+considere algunas de las siguientes
+tecnologías: Angular, React, Node.js (Express), Python (Django, Flask, FastAPI), Mongo,
+DynamoDB.
+
+R:// OK
+
+d. No se requiere implementar acciones para 
+el área administrativa. 
+
+
