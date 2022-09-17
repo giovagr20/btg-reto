@@ -19,15 +19,13 @@ routes.get("/listarFondos", async (req, res) => {
     });
   } else {
     res.send({
-      message: response.length,
+      message: response,
       error: null,
     });
   }
 });
 
 routes.post("/apertura", async (req, res) => {
-  console.log(req.body);
-
   const { name, minimum, category } = req.body;
   if (!name || !minimum || !category) {
     res.send({
@@ -42,9 +40,13 @@ routes.post("/apertura", async (req, res) => {
     category: category,
   };
 
+
   const exist = await _fondos.findOne(data);
 
+  console.log(exist);
+
   if (!exist) {
+    console.log('Entre');
     if (minimum <= 500000) {
       res.send({
         message: null,
@@ -52,9 +54,22 @@ routes.post("/apertura", async (req, res) => {
       });
     }
     const newFondo = new _fondos(data);
-
+    console.log(newFondo);
     await newFondo.save();
+
+    res.send({
+      message: newFondo,
+      error: null,
+    })
   }
+  
+  const update = await _fondos.findOneAndUpdate(data);
+
+  res.send({
+    message: update,
+    error: null
+  })
+
 });
 
 module.exports = routes;
